@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit and remove elements in DOM </title>
+</head>
+<body style="background-color: #eaeaea;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+    <script>
+  function addLanguage(langName) {
+     const li =  document.createElement('li');
+     li.innerHTML = `${langName}`;
+
+     document.querySelector('.language').appendChild(li)
+
+  }
+  addLanguage("Paython")
+  addLanguage("Swift")
+
+  function addOptiLanguage(langName) {
+    const li =  document.createElement('li');
+    li.appendChild(document.createTextNode(`${langName}`));
+    document.querySelector('.language').appendChild(li)
+
+  }
+  addOptiLanguage("Ruby rail")
+  addOptiLanguage("Type Script")
+
+  // Edit 
+   const secondLang =  document.querySelector('li:nth-child(02)');
+   
+   const newli = document.createElement('li');
+    newli.textContent = "Mojo"
+      secondLang.replaceWith(newli)
+
+    // Edit 1st li
+
+    const firstLanguage = document.querySelector('li:first-child')
+    const fistnewli = document.createElement('li');
+    fistnewli.textContent = "TypeScript"
+    firstLanguage.replaceWith(fistnewli)
+
+     // Remove Last li
+
+     const lastlanguage = document.querySelector("li:last-child")
+      console.log(lastlanguage)
+      lastlanguage.remove()
+    </script>
+    <style>
+        
+    </style>
+</body>
+</html>

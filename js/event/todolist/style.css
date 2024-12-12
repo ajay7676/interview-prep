@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css?family=Abril+Fatface|Poppins");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #3F475E;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  margin: 5rem;
+  border-radius: 20px;
+  min-height: 30vh;
+  width: 80vw;
+  min-width: 400px;
+  background-color: #F0F0EB;
+  max-width: 800px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: #C39D6E;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+nav h1 {
+  padding: 1rem;
+  font-family: "Abril Fatface", cursive;
+  font-size: 2rem;
+  color: #F0F0EB;
+}
+
+form {
+  display: flex;
+}
+form input:focus {
+  outline: none;
+}
+
+::-moz-placeholder {
+  color: #F0F0EB;
+}
+
+::placeholder {
+  color: #F0F0EB;
+}
+
+section {
+  font-family: "Poppins", sans-serif;
+}
+section div.heading {
+  padding: 1rem 2rem;
+  background-color: #928594;
+}
+section div.heading input {
+  background-color: inherit;
+  border: 2px solid #F0F0EB;
+  border-radius: 5px;
+  width: 80%;
+  min-height: 40px;
+  color: #F0F0EB;
+  font-size: 1.5rem;
+  padding-left: 15px;
+}
+
+button {
+  padding: 10px 20px;
+}
+button.addItem {
+  background-color: transparent;
+  color: #F0F0EB;
+  border: 2px solid #F0F0EB;
+  border-radius: 5px;
+  margin-left: 20px;
+}
+button.addItem:hover {
+  cursor: pointer;
+}
+
+.list, .completedItems {
+  margin: 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+li {
+  color: #3F475E;
+  padding: 0.5rem;
+  width: 90%;
+  border: 1px solid #3F475E;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  position: relative;
+  list-style: none;
+}
+
+h2 {
+  margin-left: 1.5rem;
+  font-size: 1.75rem;
+  color: #928594;
+  margin-top: 1rem;
+}
+
+li label {
+  font-size: 0.75em;
+  color: rgba(112, 112, 112, 0.55);
+}
+
+li span.spanInteract {
+  display: flex;
+  justify-content: right;
+  flex-direction: row;
+}
+li span.spanInteract label, li span.spanInteract button {
+  align-self: flex-end;
+}
+li span.spanInteract button {
+  margin-left: 10px;
+}
+li span.spanInteract button:hover {
+  cursor: pointer;
+}
+
+li button {
+  font-size: 0.78em;
+  border-radius: 0.3em;
+  padding: 0.4em 0.6em;
+  color: #928594;
+  background-color: transparent !important;
+  border: 1px solid #928594;
+  border-radius: 5px;
+}
+
+li button:last-child {
+  background: rgba(88, 183, 205, 0.5);
+}
+
+.userActions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #928594;
+  border-radius: 0px 0px 20px 20px;
+}
+
+#clearToDo, #clearCompleted {
+  color: #F0F0EB;
+  background-color: transparent;
+  border: 2px solid #F0F0EB;
+  border-radius: 5px;
+  margin: 0.5rem 0;
+  font-size: 1em;
+}
+#clearToDo:hover, #clearCompleted:hover {
+  color: red;
+  border: none;
+  background-color: #F0F0EB;
+  cursor: pointer;
+}
+
+#clearToDo {
+  margin-right: 1.5rem;
+}/*# sourceMappingURL=style.css.map */

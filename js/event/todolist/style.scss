@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Poppins');
+$white: #F0F0EB;
+$brown: #C39D6E;
+$navy: #3F475E;
+$purple: #928594;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+	width: 100%;
+	height: 100%;
+	background-color: $navy;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+main {
+	margin: 5rem;
+	border-radius: 20px;
+	min-height: 30vh;
+	width: 80vw;
+	min-width: 400px;
+	background-color: $white;
+	max-width: 800px;
+}
+
+nav {
+	display: flex;
+	justify-content: center;
+	background-color: $brown;
+	overflow: hidden;
+	border-radius: 20px 20px 0 0;
+	
+	h1 {
+		padding: 1rem;
+		font-family: 'Abril Fatface', cursive;
+		font-size: 2rem;
+		color: $white;
+	}
+}
+form {
+	display: flex;
+    input{
+        &:focus{
+            outline: none;
+        }
+    }
+}
+
+::placeholder {
+	color: $white;
+}
+
+section {
+	font-family: 'Poppins', sans-serif;
+	
+	div.heading {
+		padding: 1rem 2rem;
+		background-color: $purple;
+		
+		input {
+			background-color: inherit;
+			border: 2px solid $white;
+			border-radius: 5px;
+			width: 80%;
+			min-height: 40px;
+			color: $white;
+			font-size: 1.5rem;
+			padding-left: 15px;
+		}
+	}
+}
+
+button {
+	padding: 10px 20px;
+	
+	&.addItem {
+		background-color: transparent;
+		color: $white;
+		border: 2px solid $white;
+		border-radius: 5px;
+		margin-left: 20px;
+		
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
+
+.list, .completedItems {
+	margin: 3em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+li {
+	color: $navy;
+	padding: .5rem;
+	width: 90%;
+	border: 1px solid $navy;
+	margin-bottom: .75rem;
+	font-size: 1.1rem;
+	position: relative;
+	list-style: none;
+}
+
+h2 {
+	margin-left: 1.5rem;
+	font-size: 1.75rem;
+	color: $purple;
+	margin-top: 1rem;
+}
+
+li label {
+  font-size: .75em;
+  color: rgba(112, 112, 112, .55);
+}
+
+li span.spanInteract {
+	display: flex;
+	justify-content: right;
+	flex-direction: row;
+	// margin-top: 5px;
+	
+	label, button {
+		align-self: flex-end;
+	}
+	button {
+		margin-left: 10px;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+	
+}
+
+li button {
+  font-size: .78em;
+  border-radius: .3em;
+  padding: .4em .6em;
+  color: $purple;
+  background-color: transparent !important;
+	border: 1px solid $purple;
+	border-radius: 5px;
+}
+li button:last-child {
+  background: rgba(88, 183, 205, .5);
+}
+
+.userActions {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1rem 2rem;
+	background-color: $purple;
+	border-radius: 0px 0px 20px 20px;
+}
+
+#clearToDo, #clearCompleted {
+	color: $white;
+	background-color: transparent;
+	border: 2px solid $white;
+	border-radius: 5px;
+	margin: .5rem 0;
+	font-size: 1em;
+	
+	&:hover {
+		color: red;
+		border: none;
+		background-color: $white;
+		cursor: pointer;
+	}
+}
+
+#clearToDo {
+	margin-right: 1.5rem;
+}
