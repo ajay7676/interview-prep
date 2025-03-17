@@ -1,0 +1,27 @@
+.admin-dashboard-con form input{
+    background-color: #fff;
+    width: 100%;
+    max-width: 40%;
+}
+
+.admin-dashboard-con form textarea{
+    background-color: #fff;
+    width: 100%;
+    max-width: 40%;
+    height: 140px;
+}
+.admin-dashboard-con form  h3{
+    color: #fff;
+    padding: 1rem 0;
+}
+.admin-dashboard-con form .create-btn{
+    background-color: green;
+    color: #fff;
+    width: 100%;
+    max-width: 110px;
+    display: block;
+    margin-top: 20px;
+    padding: 7px 10px;
+    border-radius: 5px;
+
+}
