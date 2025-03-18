@@ -5,6 +5,7 @@ import RestaurantCard from './RestaurantCard'
 import Shimmer from './Shimmer';
 // import resList from '../utils/mockData'
 import { Link } from 'react-router'
+import useOnlineStatus from '../utils/useOnlineStatus';
 const Home = () => {
     // State Variable - Superpowerful variable
     const [listOfRestaurants, setListOfRestaurants] = useState([])
@@ -24,6 +25,12 @@ const Home = () => {
       setListOfRestaurants(json.recipes)
       setFilteredRestaurants(json.recipes)
    }     
+   const onlineStatus = useOnlineStatus();
+   console.log(onlineStatus)
+   if(onlineStatus === false)
+    return(
+    <h1>Look like you are offline Please check your internet connection</h1>
+  );
     return listOfRestaurants === 0 ? Shimmer :  (
       <div className="body">
         {/* <div className="search">Search</div> */}

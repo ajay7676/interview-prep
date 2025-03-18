@@ -1,6 +1,8 @@
 import { useState,useEffect } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { NavLink, Link } from "react-router";
+import useOnlineStatus from "../utils/useOnlineStatus";
+
 
 
 const Header = () => {
@@ -12,6 +14,7 @@ const Header = () => {
   useEffect(()=>{
     console.log("useEffect Called")
   }, [btnName]);
+  const onlineStatus = useOnlineStatus()
     return (
       <div className="header">
         <div className="logo-container">
@@ -24,6 +27,11 @@ const Header = () => {
         </div>
         <div className="nav-items">
           <ul>
+              <NavLink
+                to="#" style={{color: "#444"}}
+              >
+                Online Status: {onlineStatus === true ? "✅" : "🔴" }
+              </NavLink>
               <NavLink
                 to="/"
                 className={({ isActive }) => (isActive ? "active" : "")}
