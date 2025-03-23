@@ -9,6 +9,7 @@ import Home from './src/components/Home';
 import Error from './src/components/Error'
 import ResutrantMenu from './src/components/ResutrantMenu';
 import Cart from './src/components/Cart';
+import DosaRestaurant from './src/components/DosaRestaurant';
 
 
 
@@ -35,6 +36,7 @@ root.render(
         <Route path="about" element={< About />} />
         <Route path="contact" element={< ContactUs />} />
         <Route path="cart" element={< Cart />} />
+        <Route path="dosa-restaurant" element={< DosaRestaurant />} />
         <Route path="restaurants/:resId" element={< ResutrantMenu />} />
         <Route path="*" element={<Error />} />
       </Route>

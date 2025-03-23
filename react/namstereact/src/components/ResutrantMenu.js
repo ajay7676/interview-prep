@@ -8,6 +8,7 @@ const ResutrantMenu = () => {
     // const [resInfo, setResInfo] = useState(null)
     const {resId} = useParams();
     const resInfo = useResutrantMenu(resId);
+    console.log(resInfo)
     return resInfo === null ? <Shimmer /> :  (
       <div className="menu">
       <h1 className="">{resInfo.name} </h1>

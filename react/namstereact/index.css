@@ -1,10 +1,14 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
 #heading{
     color: blueviolet;
 }
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+        box-sizing: border-box;
+    /* font-family: Roboto; */
+    font-family: Roboto, Gilroy, arial, Helvetica Neue, sans-serif;
 }
 
 #heading{
@@ -14,10 +18,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #f3f3f3;
+    background-color: #fff;
     width: 100%;
-    border-bottom: 2px solid #ddd;
     padding: 0 1.5rem;
+    -webkit-box-shadow: 0 15px 40px -20px rgba(40, 44, 63, .15);
+    box-shadow: 0 15px 40px -20px rgba(40, 44, 63, .15);
 }
 .nav-items ul{
     display: flex;
