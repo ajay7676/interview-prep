@@ -1,16 +1,20 @@
-import { useState,useEffect } from "react";
+import { useState,useEffect,useContext } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { NavLink, Link } from "react-router";
+import UserContext from '../utils/UserContext'
 
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
-  console.log("Header Render")
-  // if no dependency array => useEffect is called on every render
-  // if dependency aaray is empty = [] => useEffect is called on intial reder (just once)
-  // if dependency array is [btnName] => called everytime btnName is updated
+  const {LoggedInUser} = useContext(UserContext)
+  console.log(LoggedInUser)
+  /** console.log("Header Render")
+  if no dependency array => useEffect is called on every render
+  if dependency aaray is empty = [] => useEffect is called on intial reder (just once)
+  if dependency array is [btnName] => called everytime btnName is updated
+  */
   useEffect(()=>{
-    console.log("useEffect Called")
+    // console.log("useEffect Called")
   }, [btnName]);
     return (
       <div className="header">
@@ -48,9 +52,9 @@ const Header = () => {
               >
                 Cart
               </NavLink>
-                          <button className="login-btn" onClick={() => btnName ==="Login" ? setBtnName("Logout"): setBtnName("Login")}>{btnName}</button>
+              <button className="login-btn" onClick={() => btnName ==="Login" ? setBtnName("Logout"): setBtnName("Login")}>{btnName}</button>
+              <NavLink to="#">{LoggedInUser}</NavLink>
             </ul>
-          
         </div>
       </div>
     );

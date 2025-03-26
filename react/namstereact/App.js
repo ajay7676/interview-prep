@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client'
 import Header from './src/components/Header'
 import { BrowserRouter, Routes, Route , Outlet  } from "react-router";
@@ -9,15 +9,27 @@ import Home from './src/components/Home';
 import Error from './src/components/Error'
 import ResutrantMenu from './src/components/ResutrantMenu';
 import Cart from './src/components/Cart';
+import RestaurantDetail from './src/components/RestaurantDetail';
+import UserContext from './src/utils/UserContext';
 
 
 
 const AppLayout = () =>{
+    const [userName, setUserName] = useState();
 
+    useEffect(() => {
+        const data = {
+          name: "Ajay Chauhan",
+        }
+        setUserName(data.name)
+    }, [])
+    
     return(
         <div className='app'>
-            <Header />
-            <Outlet />
+            <UserContext.Provider value={{LoggedInUser: userName , setUserName}}>
+              <Header />
+              <Outlet />
+            </UserContext.Provider>
         </div>
 
     )
@@ -35,6 +47,7 @@ root.render(
         <Route path="about" element={< About />} />
         <Route path="contact" element={< ContactUs />} />
         <Route path="cart" element={< Cart />} />
+        <Route path='restaurant/detail'  element={<RestaurantDetail />}/>
         <Route path="restaurants/:resId" element={< ResutrantMenu />} />
         <Route path="*" element={<Error />} />
       </Route>

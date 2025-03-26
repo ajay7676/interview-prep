@@ -1,54 +1,77 @@
-
-
-import React,{useEffect, useState} from 'react'
-import RestaurantCard from './RestaurantCard'
-import Shimmer from './Shimmer';
+import React, { useContext, useEffect, useState } from "react";
+import RestaurantCard from "./RestaurantCard";
+import Shimmer from "./Shimmer";
 // import resList from '../utils/mockData'
-import { Link } from 'react-router'
-const Home = () => {
-    // State Variable - Superpowerful variable
-    const [listOfRestaurants, setListOfRestaurants] = useState([])
-    const [filteredRestaurant, setFilteredRestaurants] = useState([])
-    const [searchText, setSearchText] = useState("")
-    
-   useEffect(() =>{
-     fetchData();
-   } , []);
+import { Link } from "react-router";
+import UserContext from "../utils/UserContext";
 
-   const fetchData = async () =>{
-      const data = await fetch(
-        "https://dummyjson.com/recipes"
-      );
-      const json = await data.json();
-      // console.log(json)
-      setListOfRestaurants(json.recipes)
-      setFilteredRestaurants(json.recipes)
-   }     
-    return listOfRestaurants === 0 ? Shimmer :  (
-      <div className="body">
-        {/* <div className="search">Search</div> */}
-        <div className='filter'>
-          <div className='search'>
-            <input type='text' className='search-box' value={searchText} onChange={(e) => setSearchText(e.target.value) }/>
-            <button onClick={() => {
-              const filteredRestaurant = listOfRestaurants.filter((res) => res.name.toLowerCase().includes(searchText.toLowerCase()));
+const Home = () => {
+  // State Variable - Superpowerful variable
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [filteredRestaurant, setFilteredRestaurants] = useState([]);
+  const [searchText, setSearchText] = useState("");
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch("https://dummyjson.com/recipes");
+    const json = await data.json();
+    // console.log(json)
+    setListOfRestaurants(json.recipes);
+    setFilteredRestaurants(json.recipes);
+  };
+
+   const {LoggedInUser, setUserName} = useContext(UserContext);
+  //  console.log(setUserName)
+  // console.log(listOfRestaurants.difficulty);
+  // console.log(listOfRestaurants);
+  return listOfRestaurants === 0 ? (
+    Shimmer
+  ) : (
+    <div className="body">
+      {/* <div className="search">Search</div> */}
+      <div className="filter">
+        <div className="search">
+          <input
+            type="text"
+            className="search-box"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+          <button
+            onClick={() => {
+              const filteredRestaurant = listOfRestaurants.filter((res) =>
+                res.name.toLowerCase().includes(searchText.toLowerCase())
+              );
               setFilteredRestaurants(filteredRestaurant);
               // setSearchText("")
-            }
-
-            }>Search</button>
-          </div>
-            <button className='filter-btn' onClick={() => {
-                const filteredList = listOfRestaurants.filter((res) => res.rating > 4.6 )
-               setListOfRestaurants(filteredList);
-               console.log("Button Clicked")
-            }   
-            }>Top Rated Restaurant</button>
+            }}
+          >
+            Search
+          </button>
         </div>
-        <div className="res-container">
-          <RestaurantCard resData={filteredRestaurant} />
+        <button
+          className="filter-btn"
+          onClick={() => {
+            const filteredList = listOfRestaurants.filter(
+              (res) => res.rating > 4.6
+            );
+            setListOfRestaurants(filteredList);
+            console.log("Button Clicked");
+          }}
+        >
+          Top Rated Restaurant
+        </button>
+        <div className="search">
+          <input type='text' className='search-box' value={LoggedInUser} onChange={(e) => setUserName(e.target.value) } />
         </div>
       </div>
-    );
-  };
-  export default Home;
+      <div className="res-container">
+        <RestaurantCard resData={filteredRestaurant} />
+      </div>
+    </div>
+  );
+};
+export default Home;
