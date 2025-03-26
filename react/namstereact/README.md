@@ -44,6 +44,15 @@
   - Sever Side Routing
 
 
+  #Redux Toolkit
+   - Install @reduxjs/toolkit and react-redux
+  -  Build our store
+  - Connect our Store to our app
+  - Slicee (cart Slice)
+  - dispatch(action)
+  - Selector
+
+
 
 
 

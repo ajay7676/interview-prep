@@ -1,18 +1,16 @@
 import { useState,useEffect,useContext } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { NavLink, Link } from "react-router";
-<<<<<<< HEAD
 import UserContext from '../utils/UserContext'
-=======
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { useSelector } from "react-redux";
 
->>>>>>> 750152c37cbeea4b853e904481a962330660630f
 
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
   const {LoggedInUser} = useContext(UserContext)
-  console.log(LoggedInUser)
+  // console.log(LoggedInUser)
   /** console.log("Header Render")
   if no dependency array => useEffect is called on every render
   if dependency aaray is empty = [] => useEffect is called on intial reder (just once)
@@ -21,7 +19,10 @@ const Header = () => {
   useEffect(()=>{
     // console.log("useEffect Called")
   }, [btnName]);
-  const onlineStatus = useOnlineStatus()
+  const onlineStatus = useOnlineStatus();
+// Subscribing to the store using a Se;ectors
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems)
     return (
       <div className="header">
         <div className="logo-container">
@@ -60,8 +61,9 @@ const Header = () => {
               <NavLink
                 to="/cart"
                 className={({ isActive }) => (isActive ? "active" : "")}
+                style={{fontSize: "1.5rem" , fontWeight: "700"}}
               >
-                Cart
+                Cart ({cartItems.length} items)
               </NavLink>
               <button className="login-btn" onClick={() => btnName ==="Login" ? setBtnName("Logout"): setBtnName("Login")}>{btnName}</button>
               <NavLink to="#">{LoggedInUser}</NavLink>

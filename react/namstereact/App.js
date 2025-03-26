@@ -9,12 +9,10 @@ import Home from './src/components/Home';
 import Error from './src/components/Error'
 import ResutrantMenu from './src/components/ResutrantMenu';
 import Cart from './src/components/Cart';
-<<<<<<< HEAD
 import RestaurantDetail from './src/components/RestaurantDetail';
 import UserContext from './src/utils/UserContext';
-=======
-import DosaRestaurant from './src/components/DosaRestaurant';
->>>>>>> 750152c37cbeea4b853e904481a962330660630f
+import {Provider} from 'react-redux'
+import appStore from './src/utils/appStore';
 
 
 
@@ -28,15 +26,16 @@ const AppLayout = () =>{
         setUserName(data.name)
     }, [])
     
-    return(
-        <div className='app'>
-            <UserContext.Provider value={{LoggedInUser: userName , setUserName}}>
-              <Header />
-              <Outlet />
-            </UserContext.Provider>
-        </div>
-
-    )
+    return (
+      <Provider store={appStore}>
+        <UserContext.Provider value={{ LoggedInUser: userName, setUserName }}>
+          <div className="app">
+            <Header />
+            <Outlet />
+          </div>
+        </UserContext.Provider>
+      </Provider>
+    );
 }
 
 
@@ -51,11 +50,7 @@ root.render(
         <Route path="about" element={< About />} />
         <Route path="contact" element={< ContactUs />} />
         <Route path="cart" element={< Cart />} />
-<<<<<<< HEAD
         <Route path='restaurant/detail'  element={<RestaurantDetail />}/>
-=======
-        <Route path="dosa-restaurant" element={< DosaRestaurant />} />
->>>>>>> 750152c37cbeea4b853e904481a962330660630f
         <Route path="restaurants/:resId" element={< ResutrantMenu />} />
         <Route path="*" element={<Error />} />
       </Route>
