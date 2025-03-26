@@ -22,7 +22,7 @@ const Body = () => {
       // console.log(json)
       setListOfRestaurants(json.recipes)
       setFilteredRestaurants(json.recipes)
-   }     
+   }  
     return listOfRestaurants === 0 ? Shimmer :  (
       <div className="body">
         {/* <div className="search">Search</div> */}

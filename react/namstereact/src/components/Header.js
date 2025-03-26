@@ -1,7 +1,12 @@
 import { useState,useEffect,useContext } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { NavLink, Link } from "react-router";
+<<<<<<< HEAD
 import UserContext from '../utils/UserContext'
+=======
+import useOnlineStatus from "../utils/useOnlineStatus";
+
+>>>>>>> 750152c37cbeea4b853e904481a962330660630f
 
 
 const Header = () => {
@@ -16,6 +21,7 @@ const Header = () => {
   useEffect(()=>{
     // console.log("useEffect Called")
   }, [btnName]);
+  const onlineStatus = useOnlineStatus()
     return (
       <div className="header">
         <div className="logo-container">
@@ -28,6 +34,11 @@ const Header = () => {
         </div>
         <div className="nav-items">
           <ul>
+              <NavLink
+                to="#" style={{color: "#444"}}
+              >
+                Online Status: {onlineStatus === true ? "✅" : "🔴" }
+              </NavLink>
               <NavLink
                 to="/"
                 className={({ isActive }) => (isActive ? "active" : "")}
