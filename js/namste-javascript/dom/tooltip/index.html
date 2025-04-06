@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToolTip</title>
+    <style>
+        #tooltip-btn{
+             cursor: pointer;
+        }
+          #tooltip {
+            position: absolute;
+            background: black;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            top: 230px;
+            left: 260px;
+            transform: translate(-50%, -100%);
+        }
+        .hidden {
+        display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <button id="tooltip-btn">Hover me</button>
+    <div id="tooltip" class="">I'm a tooltip!</div>
+     <script>
+        const tooltip = document.getElementById("tooltip");
+        const tooltipBtn = document.getElementById("tooltip-btn")
+        tooltipBtn.addEventListener("mouseover" , () =>{
+            const rect = tooltipBtn.getBoundingClientRect();
+            tooltip.style.top = `${rect.top}px`;
+            tooltip.style.left = `${rect.left + rect.width / 2}px`;
+        })
+        tooltipBtn.addEventListener("mouseout" , () =>{
+            tooltip.classList.add("hidden");
+
+        })
+     </script>
+</body>
+</html>

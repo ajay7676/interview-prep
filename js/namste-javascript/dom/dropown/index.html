@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        #dropdown-btn{
+            cursor: pointer;
+        }
+        #dropdown-list {
+            border: 1px solid #ccc;
+            padding: 5px;
+            width: 150px;
+            list-style: none;
+            position: absolute;
+            background: white;
+        }
+        #dropdown-list li {
+            padding: 5px;
+            cursor: pointer;
+        }
+        #dropdown-list li:hover {
+            background-color: #f0f0f0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="dropdown">
+        <button id="dropdown-btn">Select an option</button>
+        <ul id="dropdown-list" class="hidden">
+          <li>Option 1</li>
+          <li>Option 2</li>
+          <li>Option 3</li>
+        </ul>
+      </div>
+      <script>
+        btn = document.getElementById('dropdown-btn');
+        list = document.getElementById('dropdown-list');
+
+        btn.addEventListener('click' , function (){
+           list.classList.toggle('hidden')
+        })
+        list.addEventListener('click' , function (e) {
+
+            if (e.target.tagName === 'LI') {
+                btn.textContent = e.target.textContent;
+                 list.classList.add('hidden');
+                
+            }
+            
+        })
+      </script>
+</body>
+</html>
