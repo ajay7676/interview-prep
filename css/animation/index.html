@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+   <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+     .container{
+        width: 100vw;
+        height: 100vh;
+        background-color: beige;
+        border: 2px solid #333;
+     }
+     .box{
+        width: 350px;
+        height: 80px;
+        background-color: blue;
+        border-radius: 10px;
+        margin: 1rem;
+        border: 3px solid red;
+        position: relative;
+        /* animation-name: rightMovement; */
+        /* animation-duration: 5s;
+        animation-iteration-count: 2; */
+        /* animation-delay: 1s; */
+        /* animation-timing-function: cubic-bezier(0.4, 0, 1, 1); */
+        /* animation-direction: alternate-reverse; */
+        /* @keyframes duration | easing-function | delay |
+iteration-count | direction | fill-mode | play-state | name */
+       animation: 5s linear 1s infinite alternate none running rightMovement;
+     }
+     @keyframes rightMovement {
+        from {
+            top: 0;
+            left: 0;
+        }
+        to {
+            top: 0;
+            left: 1350px;
+        }
+    }
+    .box2{
+          width: 300px;
+          height: 80px;
+          background-color: blue;
+          border: 3px solid yellow;
+          border-radius: 10px;
+          position: relative;
+          animation: 5s linear 1s infinite alternate none running LeftMovement;
+            
+    }
+    @keyframes LeftMovement {
+        from {
+            top: 650px;
+            left: 1350px;
+        }
+        to {
+            top: 650px;
+            left: 0;
+        }
+    }
+    #cricle{
+        width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          background-color: blue;
+          border: 3px solid yellow;
+          position: relative;
+         top: 25%;
+         left: 40%; 
+         animation: 5s linear 1s infinite alternate none running cricleMovement;
+         /* animation: 10s ease-in-out 0 infinite alternate-reverse none running cricleMovement; */
+
+    }
+    @keyframes cricleMovement {
+        0% {
+            top: 1%;
+            left: 5%; 
+        }
+        30% {
+            top: 5%;
+            left: 90%; 
+        }
+        60% {
+            top: 90%;
+            right: 10%;
+        }
+         100% {
+            top: 95%;
+            left: 90%;
+        }
+    }
+   </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+
+        </div>
+        <div class="box2">
+
+        </div>
+        <div id="cricle">
+
+        </div>
+    </div>
+</body>
+</html>
