@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validate Numeric Input</title>
+  </head>
+  <body>
+    <!-- <h1>Validate Numeric Input</h1>     -->
+    <h2>JavaScript Validation</h2>
+
+    <p>Please input a number between 1 and 10:</p>
+    <input id="numb">
+    <button type="button" onclick="myFunction()">Submit</button>
+     <p id="demo"></p>
+    <script>
+  function myFunction() {
+    let numb = document.getElementById("numb").value;
+    let demo = document.getElementById("demo");
+    console.log("num :: " , numb)
+    if (isNaN(numb) || numb < 1 || numb > 10) {
+        // alert("Input not valid")
+        demo.innerHTML = "Input not valid";
+        demo.innerHTML = `Number :: ${numb} Input not valid.`;
+
+    }
+    else{
+        // console.log("Input Ok")
+        demo.innerHTML = `Number :: ${numb} Input Ok.`;
+    }
+
+    
+  }
+    </script>
+  </body>
+</html>

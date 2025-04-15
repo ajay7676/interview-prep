@@ -1,61 +1,61 @@
 /**
- * Problem 1-
- * Write a  function that tells if a given nummber is even or odd
+ *  Write a  function that tells of a givien number is even or odd
  * Input : A number
- * Return: "even" if the number is even, "odd" if the number is odd
+ * Outpout : "even" if the number even , "odd" if the number odd ,
  */
 
-
-function checkEvenOdd(num) {
-    if(num%2 === 0){
-        console.log(`${num} is even`);
-    }
-    else{
-        console.log(`${num} is odd`);
-    }
-
-}
-
-// checkEvenOdd(18);
-
-// Using Switch Stateement
-
-const checkOddEven = (num) =>{
-    switch (num % 2) {
-        case 0:
-            console.log("Even")
-            break;
-        case 1:
-            console.log("Odd")
-            break;
-        default:
-            console.log("Invalid Input")
-            break;
-    }
+// function checkEvenOdd(num) {
+//     if(num%2 === 0){
+//         console.log("even")
+//     }else{
+//         console.log("odd")
+//     }
     
-}
+// }
 
-// checkOddEven(-1)
+// checkEvenOdd (-17)
+// function checkEvenOdd2(num) {
+//     return num%2 === 0 ? "even" : "odd"
+    
+// }
+
+// console.log(checkEvenOdd2(-13))
+
 
 /**
- * Problem - 2 
- * 
- * Write a  function that finds & prints the smallest number among three given numbers.
+ * Writa a function that  finds & prints the smallest number among three given numbers.
  * Input: 3 numbers
- * Return: Smallest number
- * Example
- * 3,1,6 > 1
- * -1 ,-6,9  > -6
- * Math.min is not allowed
-*/
+ * Return: Smallest Number
+ */
 
-   const smallestNum = (num1,num2,num3) =>{
-//     let smallest= num1;
-//     if (num1 < num2) {
-//         smallest = num2
-//     }else if(num)
-      
-//    }
-   }
+//  function findSmallestNum(a,b,c) {
+    
+//      if ( a < b && b < c) {
+//         return `a : ${a}`;
+//      }
+//      else if (b < a && a < c) {
+//         return `b : ${b}`;
+        
+//      } else if(c < a && a < b) {
+//         return `c : ${c}`;
+        
+//      }   
+     
+//      return a,b,c;
 
-   smallestNum(3,1,6)
+//  }
+
+// console.log( findSmallestNum(6,2,3))
+
+function findSmallestThree(a,b,c) {
+    let smallestNum = a ;
+    if( b < smallestNum){
+         smallestNum = b;
+    }else if( c < smallestNum){
+         smallestNum = c;
+    }
+    return smallestNum;
+    
+    
+}
+console.log(findSmallestThree(6,1,5));
