@@ -1,0 +1,22 @@
+.header-con {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-con div a{
+    text-decoration: none;
+}
+.header-con ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    
+}
+.header-con ul li{
+    padding: 7px 10px;
+}
+.header-con ul li a{
+    padding: 7px 10px;
+    text-decoration: none;
+}

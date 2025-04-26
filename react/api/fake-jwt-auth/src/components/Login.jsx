@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const navigate = useNavigate()
 
   const handleLogin = () =>{
     const payload = {
@@ -14,16 +16,18 @@ const Login = () => {
      axios.post(`https://api.escuelajs.co/api/v1/auth/login` , payload)
        .then((res) => {
         localStorage.setItem("token" , JSON.stringify(res.data.access_token))
-        console.log("Login SuccessFul" ,res)
+        navigate("/profile")
+
        })
        .catch((err) =>{
           console.log("Login Failed" , err)
+          alert("Credentail was not valid")
        })
   }
   
   return (
     <>
-      <div className="bg-sky-200 w-full h-screen text-center p-5">
+      <div className="bg-sky-200 w-full mt-7 max-w-2xl mx-auto  h-screen text-center p-5">
         <p>Login Page</p>
         <div className="mt-7">
           <p>Email</p>

@@ -1,0 +1,32 @@
+#root {
+  max-width: 1280px;
+  margin:  auto;
+  padding: 2rem;
+  text-align: center;
+}
+.heading-con{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.heading{
+  border: 1px solid #ddd;
+  padding: 7px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.heading.active{
+  background-color: gray;
+  color: #fff;
+}
+.tab-content{
+  background-color: #eaeaea;
+  height: 240px;
+  border: 1px solid #ddd;
+  border-top: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
